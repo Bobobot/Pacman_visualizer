@@ -66,6 +66,14 @@ void PacmanVisualizer::drawMap(Map map) {
 				boxRGBA(renderer, tileX1, tileY1, tileX2, tileY2, 0x00, 0x00, 0x00, 0xFF);
 				filledCircleRGBA(renderer, circleMidX, circleMidY, ghostRadius, 0xFF, 0x80, 0x00, 0xFF);
 				break;
+			case 'K':
+				boxRGBA(renderer, tileX1, tileY1, tileX2, tileY2, 0x00, 0x00, 0x00, 0xFF);
+				filledCircleRGBA(renderer, circleMidX, circleMidY, ghostRadius, 0x00, 0x00, 0xCC, 0xFF);
+				break;
+			case 'P':
+				boxRGBA(renderer, tileX1, tileY1, tileX2, tileY2, 0x00, 0x00, 0x00, 0xFF);
+				filledCircleRGBA(renderer, circleMidX, circleMidY, ghostRadius, 0xFF, 0xFF, 0x00, 0xFF);
+				break;
 			}
 		}
 	}
