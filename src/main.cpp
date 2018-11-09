@@ -6,10 +6,10 @@
 
 
 int main(int argc, char *args[]) {
-	PacmanVisualizer pVis(800, 600);
 
 	MapContainer mapContainer("stdin.txt");
 
+	PacmanVisualizer pVis(mapContainer.getWidth(), mapContainer.getHeight());
 
 	bool running = true;
 	SDL_Event e;

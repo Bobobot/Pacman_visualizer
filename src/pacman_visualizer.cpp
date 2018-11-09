@@ -1,11 +1,12 @@
 #include "pacman_visualizer.h"
 
-PacmanVisualizer::PacmanVisualizer(int width, int height) : width(width), height(height) {
-	if (!initSDL()) {
-		throw "SDL initialization error!";
-	}
-
+PacmanVisualizer::PacmanVisualizer(int mapWidth, int mapHeight) {
 	tileSize = 30;
+	width = mapWidth * tileSize;
+	height = mapHeight * tileSize;
+
+	if (!initSDL()) 
+		throw "SDL initialization error!";
 	initTimer();
 }
 

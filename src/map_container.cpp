@@ -7,6 +7,11 @@ MapContainer::MapContainer(std::string fileName) {
 	int currentTick;
 	Map newMap;
 
+	inFile >> width;
+	inFile >> height;
+
+	inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 	while (std::getline(inFile, line)) {
 		if (line == "newtick") {
 			std::getline(inFile, line);
@@ -42,5 +47,13 @@ void MapContainer::previousMap() {
 		currentMapIndex--;
 
 	}
+}
+
+int MapContainer::getWidth() {
+	return width;
+}
+
+int MapContainer::getHeight() {
+	return height;
 }
 
