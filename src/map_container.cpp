@@ -20,9 +20,20 @@ MapContainer::MapContainer(std::string fileName) {
 			newMap.currentTick = currentTick;
 			std::getline(inFile, line);
 			newMap.currentDepth = std::stoi(line);
+		} else if (line == "newpath") {
+			std::getline(inFile, line);
+			std::istringstream iss(line);
+			int x;
+			Point p;
+			while (iss >> x) {
+				p.x = x;
+				iss >> p.y;
+				newMap.pacmanTiles.push_back(p);
+			}
 		} else  if (line == "endmap") {
 			allMaps.push_back(newMap);
 			newMap.data.clear();
+			newMap.pacmanTiles.clear();
 		} else {
 			std::vector<char> charVector(line.begin(), line.end());
 			newMap.data.push_back(charVector);

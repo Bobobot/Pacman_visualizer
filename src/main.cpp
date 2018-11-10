@@ -29,10 +29,6 @@ int main(int argc, char *args[]) {
 				case SDLK_LEFT:
 					mapContainer.previousMap();
 					break;
-				case SDLK_UP:
-					break;
-				case SDLK_DOWN:
-					break;
 				}
 			}
 		}

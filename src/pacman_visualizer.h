@@ -7,6 +7,7 @@
 #include <sstream>
 
 #include "map.h"
+#include "point.h"
 
 static int const FPSTIMER = 0;
 
