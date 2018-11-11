@@ -78,6 +78,14 @@ void PacmanVisualizer::drawMap(Map map) {
 		}
 	}
 
+	for (Point p : map.ghostTiles) {
+		int tileX1 = p.x * tileSize;
+		int tileY1 = p.y * tileSize;
+		int tileX2 = tileX1 + tileSize;
+		int tileY2 = tileY1 + tileSize;
+		boxRGBA(renderer, tileX1, tileY1, tileX2, tileY2, 0xFF, 0x80, 0x00, 0x80);
+	}
+
 	for (Point p : map.pacmanTiles) {
 		int tileX1 = p.x * tileSize;
 		int tileY1 = p.y * tileSize;

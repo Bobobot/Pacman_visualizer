@@ -8,6 +8,7 @@ public:
 	int currentDepth;
 	std::vector<std::vector<char>> data;
 	std::vector<Point> pacmanTiles;
+	std::vector<Point> ghostTiles;
 
 	std::vector<char> operator[](int index) {
 		return data[index];
@@ -19,5 +20,11 @@ public:
 
 	int getHeight() {
 		return data[0].size();
+	}
+
+	void clear() {
+		data.clear();
+		pacmanTiles.clear();
+		ghostTiles.clear();
 	}
 };

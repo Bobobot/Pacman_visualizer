@@ -30,10 +30,19 @@ MapContainer::MapContainer(std::string fileName) {
 				iss >> p.y;
 				newMap.pacmanTiles.push_back(p);
 			}
-		} else  if (line == "endmap") {
+		} else  if (line == "newghostflood") {
+			std::getline(inFile, line);
+			std::istringstream iss(line);
+			int x;
+			Point p;
+			while (iss >> x) {
+				p.x = x;
+				iss >> p.y;
+				newMap.ghostTiles.push_back(p);
+			}
+		} else if (line == "endmap") {
 			allMaps.push_back(newMap);
-			newMap.data.clear();
-			newMap.pacmanTiles.clear();
+			newMap.clear();
 		} else {
 			std::vector<char> charVector(line.begin(), line.end());
 			newMap.data.push_back(charVector);
