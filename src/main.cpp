@@ -13,23 +13,21 @@ int main(int argc, char *args[]) {
 
 	bool running = true;
 	SDL_Event e;
-	while (running) {
-		while (SDL_PollEvent(&e) != 0) {
-			if (e.type == SDL_QUIT) {
-				running = false;
-			} else if (e.type == SDL_USEREVENT) {
-				if (e.user.code == FPSTIMER) {
-					pVis.drawMap(mapContainer.currentMap());
-				}
-			} else if (e.type == SDL_KEYDOWN) {
-				switch (e.key.keysym.sym) {
-				case SDLK_RIGHT:
-					mapContainer.nextMap();
-					break;
-				case SDLK_LEFT:
-					mapContainer.previousMap();
-					break;
-				}
+	while ((SDL_WaitEvent(&e) != 0) && running) {
+		if (e.type == SDL_QUIT) {
+			running = false;
+		} else if (e.type == SDL_USEREVENT) {
+			if (e.user.code == FPSTIMER) {
+				pVis.drawMap(mapContainer.currentMap());
+			}
+		} else if (e.type == SDL_KEYDOWN) {
+			switch (e.key.keysym.sym) {
+			case SDLK_RIGHT:
+				mapContainer.nextMap();
+				break;
+			case SDLK_LEFT:
+				mapContainer.previousMap();
+				break;
 			}
 		}
 	}
